@@ -1,7 +1,8 @@
-# 修改默认IP & 固件名称 & 编译署名
-sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
-sed -i "s/hostname='.*'/hostname='Roc'/g" package/base-files/files/bin/config_generate
-sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Build by Roc')/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
+# 修改默认IP & 密码 & 固件名称 & 编译署名
+sed -i 's/192.168.1.1/192.168.100.1/g' package/base-files/files/bin/config_generate
+sed -i 's/root:.*/root:$y$j9T$Af7ua9RpmpbwXuTepgQP1\/$j2QBmog2BBUJ5hR0q7H5Y5wuGdR\/jUMWjWEVrRQufa7:20196:0:99999:7:::/g' package/base-files/files/etc/shadow
+sed -i "s/hostname='.*'/hostname='Tok'/g" package/base-files/files/bin/config_generate
+sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Build by 仨哥')/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 
 # 移除要替换的包
 rm -rf feeds/packages/net/alist
