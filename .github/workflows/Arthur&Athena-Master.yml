@@ -1,4 +1,4 @@
-name: Arthur&Athena-Master
+name: AX1800-3
 
 on:
   workflow_dispatch:
@@ -9,13 +9,13 @@ on:
 env:
   REPO_URL: https://github.com/VIKINGYFY/immortalwrt.git
   REPO_BRANCH: main
-  CONFIG_FILE: configs/Arthur&Athena.config
+  CONFIG_FILE: configs/AX1800-1.config
   DIY_SCRIPT: scripts/Roc-script.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: Arthur&Athena-Master
+  FIRMWARE_TAG: AX1800-3
   TZ: Asia/Shanghai
 
 jobs:
