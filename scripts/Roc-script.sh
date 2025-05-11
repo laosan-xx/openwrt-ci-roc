@@ -1,7 +1,10 @@
-# 修改默认IP & 固件名称 & 编译署名
-sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
+# 修改默认IP & 密码 & 固件名称 & 编译署名 & WIFI
+sed -i 's/192.168.1.1/192.168.100.1/g' package/base-files/files/bin/config_generate
+sed -i 's/root:.*/root:$5$779LrzI9TyqUit1l$7Dwjj6Ysz8RSjBDR.DB5aiumdrWYmDRK0SAr\/xV72C2:20198:0:99999:7:::/g' package/base-files/files/etc/shadow
 sed -i "s/hostname='.*'/hostname='Roc'/g" package/base-files/files/bin/config_generate
 sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Build by Roc')/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
+sed -i "s/BASE_SSID='LiBwrt'/BASE_SSID='Tk'/" target/linux/qualcommax/base-files/etc/uci-defaults/990_set-wireless.sh
+sed -i "s/BASE_WORD='12345678'/BASE_WORD='tk12345678'/" target/linux/qualcommax/base-files/etc/uci-defaults/990_set-wireless.sh
 
 # 移除要替换的包
 rm -rf feeds/packages/net/alist
