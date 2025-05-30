@@ -91,11 +91,11 @@ jobs:
         key: ${{ env.SOURCE_REPO }}-${{ env.REPO_BRANCH }}-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}-${{ env.HASH }} ${{ env.CACHE_DATE }}
         restore-keys: ${{ env.SOURCE_REPO }}-${{ env.REPO_BRANCH }}-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}-
         path: |
-        ./openwrt/.ccache
-        ./openwrt/staging_dir
+          ./openwrt/.ccache
+          ./openwrt/staging_dir
 
     - name: Refresh The Cache(刷新缓存)
-      run: |Add commentMore actions
+      run: |
         if [ -d "./openwrt/staging_dir" ]; then
           find "./openwrt/staging_dir" -type d -name "stamp" -not -path "*target*" | while read -r dir; do
               find "$dir" -type f -exec touch {} +
