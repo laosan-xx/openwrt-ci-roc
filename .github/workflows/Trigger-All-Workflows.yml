@@ -3,22 +3,26 @@ name: Trigger-All-Workflows  # 主要工作流的名称
 on:
   workflow_dispatch:  # 手动触发：通过 GitHub UI 来触发
   schedule:
-    - cron: 0 20 * * 5  # 北京时间星期六凌晨4点，定时触发
+  #  - cron: 0 20 * * 5  # 北京时间星期六凌晨4点，定时触发
+    - cron: 0 20 * * *  # 北京时间每天凌晨4点，定时触发
 
 jobs:
-    Arthur-Athena-LibWrt:
-      uses: ./.github/workflows/Arthur&Athena-LibWrt.yml
+    #Arthur-Athena-LibWrt:
+    #  uses: ./.github/workflows/Arthur&Athena-LibWrt.yml
 
     Arthur-Athena-ImmortalWrt:
       uses: ./.github/workflows/Arthur&Athena-ImmortalWrt.yml
+    
+    M2:
+      uses: ./.github/workflows/M2-nowifi-6.12.yml
  
-    Taiyi-LibWrt:
-      needs: Arthur-Athena-LibWrt
-      uses: ./.github/workflows/Taiyi-LibWrt.yml
+    #Taiyi-LibWrt:
+    #  needs: Arthur-Athena-LibWrt
+    #  uses: ./.github/workflows/Taiyi-LibWrt.yml
 
-    Taiyi-ImmortalWrt:
-      needs: Arthur-Athena-ImmortalWrt
-      uses: ./.github/workflows/Taiyi-ImmortalWrt.yml
+    #Taiyi-ImmortalWrt:
+    #  needs: Arthur-Athena-ImmortalWrt
+    #  uses: ./.github/workflows/Taiyi-ImmortalWrt.yml
 
     All-Clean:
       uses: ./.github/workflows/All-Clean.yml
